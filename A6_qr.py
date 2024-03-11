@@ -6,7 +6,7 @@ import qrcode
 
 def create_excel(entries):
     # Получаем тексты из полей ввода
-    row, place, type_subsystem, mnemonic_ne, project, department, responsible, leader, shift_contact, opl_group, text_A2, text_A1 = [entry.get() for entry in entries]
+    row, place, type_subsystem, mnemonic_ne, project, department, responsible, leader, shift_contact, shift_contact2, shift_contact3,opl_group, text_A2, text_A1 = [entry.get() for entry in entries]
 
     # Создаем объект QR-кода
     qr_data = f"Ряд {row} Место {place}\n" \
@@ -14,9 +14,9 @@ def create_excel(entries):
               f"Мнемоника / NE - {mnemonic_ne}\n" \
               f"Проект - {project}\n" \
               f"Подразделение - {department}\n" \
-              f"Отв.лицо - {responsible} тел. {shift_contact}\n" \
-              f"Руководитель - {leader}\n" \
-              f"Контакт деж. Смены - {shift_contact}\n" \
+              f"Отв.лицо - {responsible} тел. {leader}\n" \
+              f"Руководитель - {shift_contact} тел. {shift_contact2}\n" \
+              f"Контакт деж. Смены - {shift_contact3}\n" \
               f"Группа OPL - {opl_group}"
 
     qr = qrcode.QRCode(
@@ -61,7 +61,7 @@ def create_excel(entries):
         })
 
         cell_format_A2 = workbook.add_format({
-            'font_size': 20,   # размер шрифта
+            'font_size': 16,   # размер шрифта
             'valign': 'top',  # выравнивание по вертикали сверху
         })
 
@@ -96,7 +96,7 @@ frame.pack(expand=True, fill="both")
 
 # Создаем метки и поля ввода для каждого поля
 labels = ["Ряд - ", "Место - ", "Тип/подсистема - ", "Мнемоника / NE - ", "Проект - ",
-          "Подразделение - ", "Отв.лицо - ", "Руководитель - ", "Контакт деж. Смены - ", "Группа OPL - "]
+          "Подразделение - ", "Отв.лицо - ", 'тел. ', "Руководитель - ", 'тел.',"Контакт деж. Смены - ", "Группа OPL - "]
 
 entries = []
 
