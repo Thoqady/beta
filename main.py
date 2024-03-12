@@ -136,15 +136,13 @@ def create_excel_A7(entries):
         cell_format_text = workbook.add_format({
             'font_size': 76,   # размер шрифта
             'align': 'center',  # выравнивание по центру
-            'valign': 'vcenter',  # выравнивание по вертикали по центру
-            'text_wrap': True,  # перенос текста
+            'valign': 'vcenter'  # выравнивание по вертикали по центру
         })
 
         cell_format_A2 = workbook.add_format({
             'font_size': 20,   # размер шрифта
             'align': 'center',  # выравнивание по центру
-            'valign': 'top',  # выравнивание по вертикали сверху
-            'text_wrap': True, # перенос текста
+            'valign': 'top'  # выравнивание по вертикали сверху
         })
 
         cell_format_bolder = workbook.add_format({
@@ -217,8 +215,11 @@ entries.append(entry_A2)
 # Создаем кнопку
 button_A6 = tk.Button(frame, text="Формат A6", command=lambda: create_excel_A6(entries))
 button_A6.grid(row=len(labels) + 3, column=0, columnspan=2, pady=20)
+button_A6.place(relx=0.32, rely=0.8)
 
 button_A7 = tk.Button(frame, text="Формат A7", command=lambda: create_excel_A7(entries))
 button_A7.grid(row=len(labels) + 3, column=1, columnspan=1, pady=20)
+button_A7.place(relx=0.5, rely=0.8)
+
 # Запускаем главный цикл Tkinter
 root.mainloop()
